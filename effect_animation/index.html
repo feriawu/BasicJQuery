@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Course | Effect & Animation</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js
+"></script>
+
+	<style type="text/css">
+		body{
+			background: #f4f4f4;
+			font-family: arial;
+			line-height: 1.5em;
+			font-size: 17px;
+		}
+		header{
+			background: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			border-bottom: #000 solid 4px;
+			margin-bottom: 15px;
+		}
+		#container{
+			width: 90%;
+			margin: auto;
+			padding: 10px
+		}
+		.myClass{
+			background: black;
+			color: white;
+		}
+		#box{
+			background: #333;
+			color: white;
+			width: 500px;
+			height: 90px;
+			padding: 40px;
+			text-align: center;
+			margin-bottom: 15px;
+		}
+		#box2{
+			background: red;
+			width: 100px;
+			height: 100px;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>JQuery Course | Effect & Animation</h1>
+	</header>
+
+	<div id="container">
+		<button id="btnFadeOut">Fade Out</button>
+		<button id="btnFadeIn">Fade In</button>
+		<button id="btnFadeTog">Fade Tog</button>
+		<hr>
+
+		<button id="btnSlideUp">Slide Up</button>
+		<button id="btnSlideDown">Slide Down</button>
+		<button id="btnSlideTog">Slide Tog</button>
+		<button id="btnStop">Slide Stop</button>
+		<hr>
+
+
+		<div id="box">
+			<h1>Hello World</h1>
+		</div>
+
+		<hr>
+		<button id="moveLeft">Move Left</button>
+		<button id="moveRight">Move Right</button>
+		<button id="moveAround">Move Around</button>
+		<div id="box2"></div>
+		
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#btnFadeOut').click(function(){
+				$('#box').fadeOut(3000, function(){
+					$('#btnFadeOut').text('Its Gone');
+				});
+			});
+
+			$('#btnFadeIn').click(function(){
+				$('#box').fadeIn(3000);
+			});
+
+			$('#btnFadeTog').click(function(){
+				$('#box').fadeToggle(1000);
+			});
+
+			$('#btnSlideDown').click(function(){
+				$('#box').slideDown(3000);
+			});
+
+			$('#btnSlideUp').click(function(){
+				$('#box').slideUp(3000);
+			});
+
+			$('#btnSlideTog').click(function(){
+				$('#box').slideToggle('fast');
+			});
+
+			$('#btnStop').click(function(){
+				$('#box').stop();
+			});
+
+			$('#moveRight').click(function(){
+				$('#box2').animate({
+					left: 500,
+					height: '300px',
+					width: '300px',
+					opacity: '0.5'
+				});
+			});// animasi ber gerak ke kanan
+
+			$('#moveLeft').click(function(){
+				$('#box2').animate({
+					left: 0,
+					height: '100px',
+					width: '100px',
+					opacity: '1'
+				});
+			}); // animasi ber gerak ke kiri
+
+			$('#moveAround').click(function(){
+				var box = $('#box2');
+				box.animate({
+					left: 300,
+				});
+				box.animate({
+					top: 300,
+				});
+				box.animate({
+					top: 300,
+					left: 0
+				});
+				box.animate({
+					left: 0,
+					top: 0
+				});
+			}) // animasi ber gerak memutar
+		});
+	</script>
+	
+
+</body>
+</html>
